@@ -1,5 +1,5 @@
 <?php
-	include('function.php');
+	include('connect.php');
 	$pr_query=sqlquery("*", "product", "WHERE category_id=6 AND status=1");
 	//var_dump($pr_query);
 ?>
