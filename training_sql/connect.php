@@ -5,6 +5,10 @@
  * root : Username
  * password : rong
  */
+
+
+
+
 $conn=mysql_connect('localhost', 'root', '');
 if(!$conn){
 	die("Khong ket noi duoc voi Server");
