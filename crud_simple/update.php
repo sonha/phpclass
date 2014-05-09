@@ -1,7 +1,6 @@
 <?php
 	include('function.php');
-	$id=isset($_GET['id'])? $_GET['id']:"";
-	//var_dump($id); die("chet o day");
+	$id= isset($_GET['id'])? $_GET['id']:"";
 	$cat_query=sqlquery('*','category');
 	$pr_query=sqlquery("*","product","WHERE id=$id");
 	$pr=$pr_query[0];
@@ -13,24 +12,21 @@
 		$content=$_POST['txtContent'];
 		$quantity=(int)$_POST['txtQuantity'];
 		$status=(int)$_POST['status'];
-	}
-
-	$arr=array(
-			name=>"$name",
-			price=>"$price",
-			category_id=>"$category_id",
-			content=>"$content",
-			quantity=>"$quantity",
-			status=>"$status"
-		);
-
-	$update=sqlupdate($arr, "product", "WHERE id=$id");
-	var_dump($update);
-	if($update){
-		echo "Sửa thành công";
-	}
-	else{
-		echo "Sửa thất bại";
+        $arr=array(
+            'name'=>"$name",
+            'price'=>"$price",
+            'category_id'=>"$category_id",
+            'content'=>"$content",
+            'quantity'=>"$quantity",
+            'status'=>"$status"
+        );
+        $update=sqlupdate($arr, "product", "WHERE id=$id");
+        if($update){
+            echo "Sửa thành công";
+        }
+        else{
+            echo "Sửa thất bại";
+        }
 	}
 ?>
 

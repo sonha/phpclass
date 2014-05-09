@@ -39,13 +39,13 @@ function sqlinsert($arr, $tbl){
 
 //function update
 function sqlupdate($arr, $tbl, $param){
+//    var_dump($arr);die;
 	$arr_temp="";
 	foreach ($arr as $key => $val) {
-		$arr_temp=$arr_temp.','."$key=$val";
+		$arr_temp=$arr_temp.','."$key='$val'";
 	}
 	 
 	$arr_temp = substr($arr_temp, 1);
-	//var_dump($arr_temp); die("che o day");
     $string="UPDATE $tbl SET $arr_temp $param";
     $update=mysql_query($string);
 //    var_dump($update); die("lai che tiep");
